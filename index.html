@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Plac BDF - Symulator Manewrów</title>
 <meta name="description" content="Symulator manewrów samochodem ciężarowym z nadwoziem wymiennym BDF (solo i z przyczepą).">
+<meta name="author" content="Maciej">
+<meta name="copyright" content="© 2026 Maciej. Wszelkie prawa zastrzeżone. Zakaz kopiowania.">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#121518">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -125,6 +127,8 @@ footer{background:var(--panel);border-top:1px solid var(--line);padding-top:10px
 .btn{flex:1 1 120px;border-radius:10px;padding:12px;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.04em;background:var(--raise);border:1px solid var(--line)}
 .btn.pri{background:var(--accent);border-color:var(--accent);color:#1d0e03}
 .note{font-size:13px;color:var(--muted);margin:0}
+.copy-bar{font-size:12px;color:var(--muted);text-align:center;border-top:1px solid var(--line);padding-top:12px;line-height:1.4}
+.copy-bar b{color:var(--accent);font-weight:600}
 
 /* Responsiveness: Mobile phone landscape (e.g. iPhone 17 Pro Max) */
 @media (max-height: 520px) and (orientation: landscape) {
@@ -211,87 +215,6 @@ footer{background:var(--panel);border-top:1px solid var(--line);padding-top:10px
   </footer>
 </div>
 
-.ov{position:fixed;inset:0;z-index:30;background:rgba(9,11,13,.84);display:grid;place-items:center;overflow:auto;padding-block:max(20px,env(safe-area-inset-top,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;width:100%;max-width:520px;padding:22px 20px;display:grid;gap:16px}
-.brand{display:grid;gap:4px}
-.brand h1{margin:0;font-family:var(--display);font-weight:700;font-size:44px;line-height:.95;letter-spacing:.01em;text-wrap:balance}
-.brand h1 em{font-style:normal;color:var(--accent)}
-.brand p{margin:0;color:var(--muted);font-size:15px}
-.levels{display:grid;gap:8px}
-.grp{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:6px}
-.lvbtn{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;text-align:left;background:var(--raise);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
-.lvbtn:hover{border-color:var(--accent)}
-.lvbtn .n{font-family:var(--mono);font-size:13px;color:var(--accent)}
-.lvbtn b{font-family:var(--display);font-size:19px;font-weight:700;display:block}
-.lvbtn span.d{font-size:13px;color:var(--muted);display:block;line-height:1.3}
-.stars{font-size:16px;letter-spacing:2px;color:var(--line);white-space:nowrap}
-.stars .on{color:var(--warn)}
-.help{font-size:13px;color:var(--muted);line-height:1.45;border-top:1px solid var(--line);padding-top:12px}
-.help b{color:var(--fg);font-weight:500}
-.res h2{margin:0;font-family:var(--display);font-size:32px;font-weight:700}
-.res .big{font-size:34px;letter-spacing:6px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.grid3 div{background:var(--raise);border-radius:8px;padding:10px;display:grid;gap:2px}
-.grid3 small{font-family:var(--display);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.grid3 span{font-family:var(--mono);font-size:18px;font-variant-numeric:tabular-nums}
-.btns{display:flex;gap:8px;flex-wrap:wrap}
-.btn{flex:1 1 120px;border-radius:10px;padding:12px;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.04em;background:var(--raise);border:1px solid var(--line)}
-.btn.pri{background:var(--accent);border-color:var(--accent);color:#1d0e03}
-.note{font-size:13px;color:var(--muted);margin:0}
-@media (max-width:420px){.lv b{font-size:18px}.stats{gap:10px}.ped{font-size:17px}#act{font-size:15px}}
-</style>
-
-</head>
-<body>
-<div id="app">
-  <header>
-    <div class="row">
-      <div class="lv"><b id="lvn">Plac BDF</b><span class="tag" id="ph">ETAP 1/1</span></div>
-      <div class="stats">
-        <div class="stat"><small>Czas</small><span id="st-t">0:00</span></div>
-        <div class="stat"><small>Uderz.</small><span id="st-h">0</span></div>
-        <div class="stat"><small>Zmiany</small><span id="st-c">0</span></div>
-      </div>
-      <div class="tools">
-        <button class="tb" id="b-path" aria-pressed="true" title="Pokaż przewidywany tor kół">Tor</button>
-        <button class="tb" id="b-mir" aria-pressed="false" title="Pokaż widok z lusterek">Lusterka</button>
-        <button class="tb" id="b-zoom" title="Zmień widok kamery">Widok: auto</button>
-        <button class="tb" id="b-menu">Menu</button>
-      </div>
-    </div>
-    <p id="ins">Wybierz poziom.</p>
-  </header>
-
-  <div id="stage">
-    <canvas id="cv"></canvas>
-    <div id="chips" hidden>
-      <div class="chip" id="c-lat"><small>Boczne</small><span id="c-lat-v">0,00 m</span></div>
-      <div class="chip" id="c-ang"><small>Kąt</small><span id="c-ang-v">0,0°</span></div>
-      <div class="chip" id="c-dist"><small>Do celu</small><span id="c-dist-v">0,00 m</span></div>
-    </div>
-    <div id="speedo">
-      <span class="g" id="gear">N</span><span class="v" id="spd">0</span><small>KM/H</small>
-      <span id="artw" hidden><small>ZGIĘCIE</small><span id="art">0°</span></span>
-    </div>
-    <div class="mir l" id="mirL" hidden><canvas id="mLm"></canvas><canvas id="mLw"></canvas></div>
-    <div class="mir r" id="mirR" hidden><canvas id="mRm"></canvas><canvas id="mRw"></canvas></div>
-    <div id="toast" style="opacity:0">Uderzenie!</div>
-  </div>
-
-  <footer>
-    <div class="steer">
-      <div class="lbl">Skręt<span id="sv">0°</span></div>
-      <input id="wheel" type="range" min="-100" max="100" step="1" value="0" aria-label="Kierownica">
-      <button class="tb" id="center">Prosto</button>
-    </div>
-    <div class="pedals">
-      <button class="ped" id="rev">Tył<small>bieg R</small></button>
-      <button id="act" disabled><span id="act-t">—</span><i id="act-p"></i></button>
-      <button class="ped" id="fwd">Przód<small>bieg D</small></button>
-    </div>
-  </footer>
-</div>
-
 <div class="ov" id="menu">
   <div class="card">
     <div class="brand">
@@ -303,6 +226,9 @@ footer{background:var(--panel);border-top:1px solid var(--line);padding-top:10px
       <b>Sterowanie dotykowe:</b> suwak to kierownica, zostaje tam, gdzie go puścisz. Przytrzymaj <b>Przód</b> lub <b>Tył</b>, puść, żeby hamować. Środkowy przycisk wykonuje czynności robocze.<br>
       <b>Sterowanie klawiaturą:</b> <span class="kbd-badge">W</span> / <span class="kbd-badge">↑</span> gaz (bieg D), <span class="kbd-badge">S</span> / <span class="kbd-badge">↓</span> wsteczny (bieg R), <span class="kbd-badge">A</span> / <span class="kbd-badge">D</span> lub <span class="kbd-badge">←</span> / <span class="kbd-badge">→</span> skręt, <span class="kbd-badge">C</span> koła prosto, <span class="kbd-badge">Spacja</span> / <span class="kbd-badge">E</span> / <span class="kbd-badge">Enter</span> czynność, <span class="kbd-badge">Esc</span> menu.<br>
       <b>Zestaw z przyczepą:</b> przy cofaniu kręcisz w przeciwną stronę, niż ma pójść przyczepa, a potem odbijasz, żeby zestaw się wyprostował. Zgięcie widać w prawym dolnym rogu, powyżej 80° zestaw się łamie.
+    </div>
+    <div class="copy-bar">
+      🛡️ <b>Autorska aplikacja Macieja</b> • © 2026 Wszelkie prawa zastrzeżone • Zakaz kopiowania i powielania kodu
     </div>
   </div>
 </div>

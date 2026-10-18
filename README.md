@@ -70,3 +70,16 @@ git push -u origin main
 * `icons/` – Dedykowane ikony PWA (SVG, 192x192, 512x512, maskable, Apple Touch Icon)
 * `apple-touch-icon.png` – Ikona wysokiej rozdzielczości dla urządzeń Apple (iOS)
 * `favicon.png` – Ikona karty przeglądarki
+* `LICENSE` – Licencja prawna i zastrzeżenie praw autorskich
+
+---
+
+## ⚖️ Prawa autorskie i licencja (Copyright & Ownership)
+
+**© 2026 Maciej. Wszelkie prawa zastrzeżone / All Rights Reserved.**
+
+Niniejsza aplikacja, jej koncepcja, kod źródłowy, logika fizyki symulatora, interfejs oraz oprawa graficzna stanowią wyłączną własność intelektualną autora (**Maciej**).
+
+* ⛔ **Zakaz kopiowania:** Zabrania się kopiowania, powielania, redystrybucji, modyfikowania, dekompilacji lub wykorzystywania całości lub jakiejkolwiek części kodu źródłowego i zasobów aplikacji bez uprzedniej pisemnej zgody autora.
+* 🔒 **All Rights Reserved:** No part of this software may be copied, reproduced, distributed, or modified in any form without express written permission.
+
