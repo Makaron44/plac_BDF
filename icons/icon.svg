@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181c22" />
+      <stop offset="50%" stop-color="#121518" />
+      <stop offset="100%" stop-color="#090b0d" />
+    </linearGradient>
+
+    <linearGradient id="cabGrad" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#d6dadf" />
+    </linearGradient>
+
+    <linearGradient id="contGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3a4b5e" />
+      <stop offset="50%" stop-color="#2d3b4b" />
+      <stop offset="100%" stop-color="#212c39" />
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9436" />
+      <stop offset="100%" stop-color="#ff6200" />
+    </linearGradient>
+
+    <linearGradient id="chassisGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3d444c" />
+      <stop offset="50%" stop-color="#4e5660" />
+      <stop offset="100%" stop-color="#30363d" />
+    </linearGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.65" />
+    </filter>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#ff7a1a" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="108" fill="url(#bgGrad)" stroke="#30363c" stroke-width="4" />
+
+  <!-- Yard parking slot grid & guide lines -->
+  <g opacity="0.18">
+    <line x1="64" y1="128" x2="448" y2="128" stroke="#ffffff" stroke-width="2" stroke-dasharray="8 8" />
+    <line x1="64" y1="256" x2="448" y2="256" stroke="#ffffff" stroke-width="2" stroke-dasharray="8 8" />
+    <line x1="64" y1="384" x2="448" y2="384" stroke="#ffffff" stroke-width="2" stroke-dasharray="8 8" />
+    <line x1="128" y1="64" x2="128" y2="448" stroke="#ffffff" stroke-width="2" stroke-dasharray="8 8" />
+    <line x1="256" y1="64" x2="256" y2="448" stroke="#ffffff" stroke-width="2" stroke-dasharray="8 8" />
+    <line x1="384" y1="64" x2="384" y2="448" stroke="#ffffff" stroke-width="2" stroke-dasharray="8 8" />
+  </g>
+
+  <!-- Maneuver Target Box (Guidance lines like in game) -->
+  <g transform="translate(24, 24) scale(1)">
+    <!-- Maneuver trajectory track -->
+    <path d="M 160 410 C 160 300 232 230 232 120" fill="none" stroke="#ff7a1a" stroke-width="3" stroke-dasharray="6 6" opacity="0.6" />
+    <path d="M 304 410 C 304 300 232 230 232 120" fill="none" stroke="#ff7a1a" stroke-width="3" stroke-dasharray="6 6" opacity="0.6" />
+
+    <!-- Parking target slot outline -->
+    <rect x="156" y="56" width="152" height="236" rx="8" fill="rgba(255, 122, 26, 0.06)" stroke="#ff7a1a" stroke-width="3" stroke-dasharray="10 6" />
+
+    <!-- Container support legs (amber hazard legs) -->
+    <!-- Front legs -->
+    <rect x="140" y="80" width="16" height="24" rx="3" fill="#ff7a1a" stroke="#ffffff" stroke-width="1.5" filter="url(#glow)" />
+    <line x1="148" y1="104" x2="148" y2="124" stroke="#ff7a1a" stroke-width="4" stroke-linecap="round" />
+    <rect x="308" y="80" width="16" height="24" rx="3" fill="#ff7a1a" stroke="#ffffff" stroke-width="1.5" filter="url(#glow)" />
+    <line x1="316" y1="104" x2="316" y2="124" stroke="#ff7a1a" stroke-width="4" stroke-linecap="round" />
+
+    <!-- Rear legs -->
+    <rect x="140" y="240" width="16" height="24" rx="3" fill="#ff7a1a" stroke="#ffffff" stroke-width="1.5" filter="url(#glow)" />
+    <line x1="148" y1="264" x2="148" y2="284" stroke="#ff7a1a" stroke-width="4" stroke-linecap="round" />
+    <rect x="308" y="240" width="16" height="24" rx="3" fill="#ff7a1a" stroke="#ffffff" stroke-width="1.5" filter="url(#glow)" />
+    <line x1="316" y1="264" x2="316" y2="284" stroke="#ff7a1a" stroke-width="4" stroke-linecap="round" />
+
+    <!-- BDF Swap Body Container (Nadwozie wymienne) -->
+    <g filter="url(#shadow)">
+      <rect x="162" y="62" width="140" height="224" rx="8" fill="url(#contGrad)" stroke="#4a5a6e" stroke-width="2.5" />
+      
+      <!-- Container corrugated wall ribs -->
+      <line x1="164" y1="96" x2="300" y2="96" stroke="#1d2631" stroke-width="2" />
+      <line x1="164" y1="126" x2="300" y2="126" stroke="#1d2631" stroke-width="2" />
+      <line x1="164" y1="156" x2="300" y2="156" stroke="#1d2631" stroke-width="2" />
+      <line x1="164" y1="186" x2="300" y2="186" stroke="#1d2631" stroke-width="2" />
+      <line x1="164" y1="216" x2="300" y2="216" stroke="#1d2631" stroke-width="2" />
+      <line x1="164" y1="246" x2="300" y2="246" stroke="#1d2631" stroke-width="2" />
+
+      <!-- Corner castings (typowe okucia narożne BDF) -->
+      <rect x="164" y="64" width="14" height="14" rx="2" fill="#d4a017" />
+      <rect x="286" y="64" width="14" height="14" rx="2" fill="#d4a017" />
+      <rect x="164" y="270" width="14" height="14" rx="2" fill="#d4a017" />
+      <rect x="286" y="270" width="14" height="14" rx="2" fill="#d4a017" />
+
+      <!-- Container label / plate -->
+      <rect x="180" y="74" width="104" height="24" rx="4" fill="#18202a" stroke="#334050" stroke-width="1" />
+      <text x="232" y="90" fill="#ebe7de" font-family="'Barlow', sans-serif" font-weight="700" font-size="12" letter-spacing="1.5" text-anchor="middle">C745 • BDF</text>
+    </g>
+
+    <!-- Truck reversing under container (Samochód ciężarowy) -->
+    <g filter="url(#shadow)">
+      <!-- Chassis frame rails -->
+      <rect x="194" y="230" width="76" height="160" rx="4" fill="url(#chassisGrad)" />
+      
+      <!-- Rear dual wheels -->
+      <rect x="172" y="300" width="20" height="42" rx="4" fill="#0d0f11" stroke="#252a2f" stroke-width="1.5" />
+      <rect x="272" y="300" width="20" height="42" rx="4" fill="#0d0f11" stroke="#252a2f" stroke-width="1.5" />
+
+      <!-- Rear tail lights -->
+      <rect x="194" y="232" width="16" height="6" fill="#e0352b" />
+      <rect x="254" y="232" width="16" height="6" fill="#e0352b" />
+      
+      <!-- Reverse work lights glow -->
+      <polygon points="196,230 180,180 220,180" fill="rgba(255, 246, 216, 0.25)" />
+      <polygon points="268,230 244,180 284,180" fill="rgba(255, 246, 216, 0.25)" />
+
+      <!-- Truck Cab (Szoferka) -->
+      <g transform="translate(0, 0)">
+        <rect x="176" y="356" width="112" height="74" rx="14" fill="url(#cabGrad)" stroke="#a0a8b0" stroke-width="2" />
+        
+        <!-- Windshield (Szyba przednia) -->
+        <rect x="186" y="402" width="92" height="22" rx="6" fill="#16232b" stroke="#303b44" stroke-width="1.5" />
+
+        <!-- Roof orange warning beacon lights / sun visor -->
+        <rect x="190" y="360" width="84" height="6" rx="2" fill="url(#accentGrad)" />
+        <circle cx="196" cy="363" r="3" fill="#ffb020" filter="url(#glow)" />
+        <circle cx="268" cy="363" r="3" fill="#ffb020" filter="url(#glow)" />
+
+        <!-- Side mirrors -->
+        <rect x="166" y="394" width="8" height="18" rx="2" fill="#20252b" />
+        <rect x="290" y="394" width="8" height="18" rx="2" fill="#20252b" />
+      </g>
+    </g>
+
+    <!-- Prominent "BDF" Logo Badge -->
+    <g transform="translate(232, 184)" filter="url(#shadow)">
+      <rect x="-62" y="-22" width="124" height="44" rx="10" fill="#121518" stroke="url(#accentGrad)" stroke-width="2.5" />
+      <text x="0" y="9" fill="#ff7a1a" font-family="'Barlow Condensed', 'Arial Black', sans-serif" font-weight="900" font-size="30" letter-spacing="3" text-anchor="middle">PLAC BDF</text>
+    </g>
+  </g>
+</svg>
